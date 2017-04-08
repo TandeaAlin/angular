@@ -1,0 +1,39 @@
+<p>
+Displaying {{employee.length}} employees.
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th data-field = "name">ID</th>
+            <th data-field = "name">Name</th>
+            <th data-field = "name">Edit</th>
+            <th data-field = "name">Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor= "let emp of employee">
+            <td>{{emp.idEmployee}}</td>
+            <td>{{emp.name}}</td>
+            <td>
+                <a [routerLink] = "['/employees',emp.idEmployee]"> 
+                    <i class = "material-icons">mode_edit</i>
+                </a>
+            </td>
+            <td>
+                <a (click) = "deleteEmployee(emp)" href="">
+                    <i class="material-icons">delete</i>
+                </a>    
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  <a class="btn-floating btn-large waves-effect waves-light green"
+     routerLink="/employees/new">
+    <i class="material-icons">add</i>
+  </a>
+</div>

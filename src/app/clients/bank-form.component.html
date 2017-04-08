@@ -1,0 +1,37 @@
+
+<h5>{{ title }}</h5>
+<div class="row">
+  <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="balance" type="number" class="validate"
+               [(ngModel)]="bank.balance" formControlName="balance"
+               [class.invalid]="form.controls['balance'].touched && !form.controls['balance'].valid"
+        >
+        <label for="balance"
+               [class.active]="bank.balance"
+               data-error="Balance must be a positive number">
+          Account Balance
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+         <input id="type" type="text" class="validate"
+               [(ngModel)]="type" formControlName="type"
+               [class.invalid]="form.controls['type'].touched && !form.controls['type'].valid && type === 'savings'">
+        <label for="type"
+               [class.active]="type"
+               data-error="Please type either 'spendigs' or 'savings'">
+          Account type : 'spendings' or 'savings'
+        </label>
+        </div>
+    </div>
+
+
+    <button class="btn waves-effect waves-light" type="submit"
+            [disabled]="!form.valid">
+      Submit<i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>

@@ -1,0 +1,70 @@
+<h5>{{ title }}</h5>
+<div class="row">
+  <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="name" type="text" class="validate"
+               [(ngModel)]="employee.name" formControlName="name"
+               [class.invalid]="form.controls['name'].touched && !form.controls['name'].valid"
+        >
+        <label for="name"
+               [class.active]="employee.name"
+               data-error="Name is required and needs to contain at least 3 chars">
+          Name
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="cnp" type="text" class="validate"
+               [(ngModel)]="employee.cnp" formControlName="cnp"
+               [class.invalid]="form.controls['cnp'].touched && !form.controls['cnp'].valid">
+        <label for="cnp"
+               [class.active]="employee.cnp"
+               data-error="Invalid CNP">
+            CNP
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="idCardNumber" type="text" class="validate"
+               [(ngModel)]="employee.idCardNumber" formControlName="idCardNumber"
+               [class.invalid]="form.controls['idCardNumber'].touched && !form.controls['idCardNumber'].valid">
+        <label for="idCardNumber" [class.active]="employee.idCardNumber">Id Card Number</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="address" type="text" class="validate"
+               [(ngModel)]="employee.address" formControlName="address"
+               [class.invalid]="form.controls['address'].touched && !form.controls['address'].valid">
+        <label for="address"
+               [class.active]="employee.address"
+               data-error="Invalid address">
+            Address
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="salary" type="number" class="validate"
+               [(ngModel)]="employee.salary" formControlName="salary"
+               [class.invalid]="form.controls['salary'].touched && !form.controls['salary'].valid">
+        <label for="salary"
+               [class.active]="employee.salary"
+               data-error="Invalid salary">
+            Salary
+        </label>
+      </div>
+    </div>
+
+
+    <button class="btn waves-effect waves-light" type="submit"
+            [disabled]="!form.valid">
+      Submit<i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>

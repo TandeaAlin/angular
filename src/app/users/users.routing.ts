@@ -6,7 +6,7 @@ import {UserFormComponent} from "./user-form/user-form.component";
 const usersRoutes: Routes = [
   { path: 'users', component: UsersComponent, pathMatch: 'full' },
   { path: 'users/new', component: UserFormComponent},
-  { path: 'users/:id', component: UserFormComponent}
+  { path: 'users/:idEmployee', component: UserFormComponent}
 ];
 
 export const usersRouting = RouterModule.forChild(usersRoutes);

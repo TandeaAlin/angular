@@ -1,0 +1,38 @@
+
+<h5>{{title}}</h5>
+<div class="row">
+  <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="amount" type="number" class="validate"
+               [(ngModel)]="transferAmount" formControlName="amount"
+               [class.invalid]="form.controls['amount'].touched && !form.controls['amount'].valid"
+        >
+        <label for="transferAmount"
+               [class.active]="amount"
+               data-error="Ammount must not be higher than the available amount">
+          Transfer Ammount
+        </label>
+      </div>
+</div>
+      <div class="row">
+      <div class="input-field col s12">
+        <input id="idDestination" type="number" class="validate"
+               [(ngModel)]="idDest" formControlName="idDestination"
+               [class.invalid]="form.controls['idDestination'].touched && !form.controls['idDestination'].valid">
+        <label for="idDest"
+               [class.active]="idDestination"
+               data-error="enter a valid destination account id ">
+            Destination account ID
+        </label>
+      </div>
+    </div>
+    
+
+
+    <button class="btn waves-effect waves-light" type="submit"
+            [disabled]="!form.valid">
+      Transfer<i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
